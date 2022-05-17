@@ -1,5 +1,5 @@
 <?php 
-// Add Payment Gateway Setting option
+// Add Payment Gateway Setting option page
 class WC_Settings_As_Payment_Gateways {
 
     public static function init() {
@@ -63,7 +63,7 @@ WC_Settings_As_Payment_Gateways::init();
 
 
 
-// Calculate Fees based on gateways
+// Calculate Fees based on payment gateway selection
 add_action( 'woocommerce_cart_calculate_fees', 'as_add_fee_discounter_per_payment_gateways', 25 );
 function as_add_fee_discounter_per_payment_gateways( $cart ) {
 
@@ -82,7 +82,7 @@ function as_add_fee_discounter_per_payment_gateways( $cart ) {
 	if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
 		return; 
 	}
-	
+
 
 	if (in_array($current_method, $available_methods)){
 
